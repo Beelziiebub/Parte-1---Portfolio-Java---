@@ -1,0 +1,106 @@
+Wireframes: 
+
+1 → Começando com a tela de login:
+Email: Entrada de texto.
+Senha: Entrada de senha.
+Botão "Entrar": Para autenticação.
+Link "Criar Conta": Redireciona para a tela de cadastro de novo usuário.
+2 → Fazendo a tela do Administrador:
+Menu Lateral com Opções:
+Cadastrar Denúncias;
+Visualizar Denúncias;
+Dashboard;
+Gerenciar Usuários;
+Área Principal.
+
+3 → Tela para cadastrar as denúncias: 
+Tipo de Problema (Dropdown);
+Descrição;
+Localização;
+Anexar Foto;
+Botão "Registrar Denúncia".
+
+
+
+
+
+4 → Tela para visualizar as denúncias: 
+
+Lista de denúncias cadastradas com filtros.
+Cada denúncia tem a opção de visualizar detalhes, editar ou fechar.
+
+5 → Criando o Dashboard:
+Gráficos apresentando:
+Número de denúncias abertas e fechadas por mês;
+Gráfico por tipo de problema;
+Resumo das principais estatísticas.
+6 →Tela para cadastrar um usuário: 
+Formulário com campos para:
+Nome;
+Email;
+Senha;
+Confirmar Senha.
+Botão para "Cadastrar".
+
+→ Estruturando o Banco de Dados: 
+Usuários: 
+id (PK);
+nome;
+email (único);
+senha (hashed);
+tipo (administrador, usuário).
+
+
+
+Denúncias:
+id (PK);
+id_usuario (FK para usuarios);
+tipo_problema;
+descricao;
+localizacao;
+data_criacao;
+status (aberta, fechada);
+data_solucao (nullable).
+
+Comentários:
+id (PK);
+id_denuncia (FK para denuncias);
+id_usuario (FK para usuarios);
+comentario;
+data_comentario.
+
+Curtidas:
+id (PK);
+id_denuncia (FK para denuncias);
+id_usuario (FK para usuarios);
+data_curtida.
+
+
+
+Classes que são importantes para o funcionamento do sistema:
+1. Classe: Usuário:
+Métodos:
+cadastrar();
+login();
+visualizarDenuncias().
+
+2. Classe: Denúncia:
+Métodos:
+cadastrarDenuncia();
+visualizarDenuncias();
+fecharDenuncia().
+
+3. Classe: Comentário:
+Métodos:
+adicionarComentario();
+visualizarComentarios().
+
+4. Classe: Curtida:
+Métodos:
+adicionarCurtida();
+removerCurtida():
+
+5. Classe: Dashboard:
+Métodos:
+gerarRelatorioMensal();
+contarDenunciasPorTipo().
